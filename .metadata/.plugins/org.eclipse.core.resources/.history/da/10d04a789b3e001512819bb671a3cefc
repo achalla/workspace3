@@ -1,0 +1,16 @@
+
+public class ChocolateBars {
+	public int makeChocolate(int small, int big, int goal) {
+		if(small < 0 || big < 0) return -1;//can't be done
+		if(goal == 0) return 0;//done, don't do any more
+
+		if(makeChocolate(small,big-1,goal-5)>-1) return makeChocolate(small,big-1,goal-5);
+		if(makeChocolate(small-1,big,goal-1)>-1) return makeChocolate(small-1,big,goal-1)+1;
+		return -1;
+	}
+
+
+	public static void main(String[] args){
+
+	}
+}

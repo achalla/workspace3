@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+
+public class StringReverser {
+
+
+	public static String frontBack(String str) {
+		char[] c = str.toCharArray();
+		int length = c.length;
+		for(int i = 0; i < length/2; i++){
+			char temp = c[i];
+			c[i] = c[length-i-1];
+			c[length-i-1] = temp;  
+		}
+		return new String(c);
+	}
+	
+	public static String backAround(String str) {
+		  char c[] = new char[str.length()+2], lastChar = str.charAt(str.length()-1);
+		  str.getChars(0,
+		            str.length(),
+		            c,
+		            1);
+		  c[0] = lastChar;
+		  c[c.length-1] = lastChar;
+		  return new String(c);
+		}
+	
+	public static boolean closeFar(int a, int b, int c) {
+		   if(isClose(a,b)&&isFar(c,a,b)) return true;
+		   if(isClose(a,c)&&isFar(b,a,c)) return true;
+		   return false;
+		}
+
+
+		//returns true if x is close to y
+		public static boolean isClose(int x, int y){
+		  return (x-y<=1 && x-y>=-1);
+		}
+
+		//returns true if x is far from y and far from z
+		public static boolean isFar(int x, int y, int z){
+		  return isFarDuoHelper(x,y)&&isFarDuoHelper(x,z);
+		}
+
+		public static boolean isFarDuoHelper(int x, int y){
+		  return ((x-y)>=2 || (x-y)<=-2);
+		}
+
+		public static boolean canDo(int ones, int fives, int target){
+			if(ones < 0 || fives < 0) return false;
+			if(target == 0) return true;
+			if(canDo(ones-1,fives,target-1)) return true;
+			if(canDo(ones,fives-1,target-5))return true;
+			return false;
+		}
+		
+		public static int howDo(int ones, int fives, int target){
+			if(ones < 0 || fives < 0) return -1;
+			if(target == 0) return 0;
+			if(howDo(ones-1,fives,target-1)>-1) return howDo(ones-1,fives,target-1)+1;
+			if(howDo(ones,fives-1,target-5)>-1)return howDo(ones,fives-1,target-5)+1;
+			return -1;
+		}
+
+
+	public static void main(String[] args){
+//		Scanner sc = new Scanner(System.in);
+//		String input = sc.nextLine();
+//		System.out.println(frontBack(input));
+//		System.out.println(backAround(input));
+//		
+//		System.out.println(closeFar(1, 2, 10));
+//		System.out.println(isFar(10, 2, 1));
+//		
+//		System.out.println(isFarDuoHelper(10, 2));
+//		System.out.println(isFarDuoHelper(10, 1));
+//		
+//		System.out.println(isClose(1, 2));
+		
+		System.out.println(canDo(0,1,5));
+		System.out.println(canDo(5,0,5));
+		System.out.println(canDo(0,0,5));
+		System.out.println(canDo(2,1,7));
+		System.out.println(canDo(1,1,7));		
+		System.out.println(canDo(1,2,7));		
+	}
+}

@@ -1,0 +1,88 @@
+/*
+ * Anu Challa
+ * Created 8/16/15
+ */
+
+public class SudokuBoard {
+	/*
+	 * Some terminology: 
+	 * We will call each of the horizontal strips of 1-9 numbers on the board a "row"
+	 * We will call each of the vertical strips of 1-9 numbers on the board a "column" (abbreviated "col")
+	 * We will call each of the 3 by 3 grids that must contain 1-9 a "3x3" 
+	 * We will call each of the 81 individual units containing numbers on the board a "cell"
+	 */
+	static int[][] board;
+	
+	public SudokuBoard(){
+		board = new int[9][9];
+	}
+	
+	public static void loadBoard1(){
+
+		int[][] grid1 = 
+	   {{0,4,0,0,8,0,0,0,0},
+		{0,7,0,3,0,0,0,4,0},
+		{0,9,8,0,7,0,5,0,1},
+		{0,0,9,0,3,4,0,0,8},
+		{0,0,2,0,0,0,9,0,0},
+		{7,0,0,5,9,0,2,0,0},
+		{9,0,7,0,2,0,4,3,0},
+		{0,6,0,0,0,3,0,9,0},
+		{0,0,0,0,6,0,0,8,0}};
+		board = grid1;
+	}
+	
+	public static void loadBoard2(){
+		//1-29 on Simply Sudoku
+		int[][] grid2 = 
+		   {{0,0,0,0,0,0,5,9,1},
+			{9,0,0,8,0,0,6,0,0},
+			{1,0,0,5,0,3,0,7,8},
+			{0,0,7,9,0,0,0,0,5},
+			{0,0,0,2,0,5,0,0,0},
+			{2,0,0,0,0,8,7,0,0},
+			{7,4,0,1,0,2,0,0,3},
+			{0,0,8,0,0,6,0,0,9},
+			{5,2,6,0,0,0,0,0,0}};
+		board = grid2;
+	}
+
+	private static void checkGrid(int row, int col){
+		if(row < 0 || row > 2) throw new IllegalArgumentException();
+		if(col < 0 || col > 2) throw new IllegalArgumentException();
+	}
+	
+	private static void checkRow(){
+		
+	}
+	
+	private static void checkCol(){
+		
+	}
+
+	private static void printBoard(){
+		for(int[] i:board){
+			for(int j:i){
+				System.out.print(j);
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	private static void printBoardBy3x3(){
+		int x,y;
+		x = board[0].length;
+		y = board.length;
+		for(int i = 0; i<:i++){
+						
+		}
+	}
+
+	public static void main(String[] args) {
+		SudokuBoard sb = new SudokuBoard();
+		loadBoard1();
+		printBoard();
+	}
+	
+}

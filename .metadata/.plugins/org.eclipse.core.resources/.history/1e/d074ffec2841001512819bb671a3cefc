@@ -1,0 +1,63 @@
+
+public class ChocolateBars {
+	static final int BIG_LENGTH = 5, SMALL_LENGTH = 1;
+	
+	
+	
+	public static int makeChocolateTimedOut(int small, int big, int goal) {
+		if(small < 0 || big < 0) return -1;//can't be done
+		if(goal == 0) return 0;//done, don't do any more
+
+		if(makeChocolate(small,big-1,goal-5)>-1) return makeChocolate(small,big-1,goal-5);
+		if(makeChocolate(small-1,big,goal-1)>-1) return makeChocolate(small-1,big,goal-1)+1;
+		return -1;
+	}
+	
+	public static int makeChocolate(int small, int big, int goal) {
+		if(small < 0 || big < 0) return -1;//can't be done
+		if(goal == 0) return 0;//done, don't do any more
+
+		if(goal-5 >= 0 && big > 0) return makeChocolate(small,big-1,goal-5);
+		if(goal-1 >= 0 && small > 0) return makeChocolate(small-1,big,goal-1)+1;
+		return -1;
+	}
+	
+	// works, gives StackOverflowError for makeBricks(1000000, 1000, 1000100)
+	public static boolean makeBricks2(int small, int big, int goal) {
+		if(small < 0 || big < 0) return false;
+		if(goal == 0) return true;
+		if(goal < 0) return false;
+		if(makeBricks(small,big-1,goal-5)) return true;
+		if(makeBricks(small-1, big, goal-1)) return true;
+		return false;
+	}
+	
+	public static boolean makeBricks(int ones, int fives, int goal) {
+		if(goal/BIG_LENGTH > fives) return ones > goal/BIG_LENGTH-fives; //overshot with bigs, need to check mod with smalls
+		else return goal%BIG_LENGTH > ones; //overshot with bigs, need to check mod with smalls
+		
+		//exhausted all bigs, need smalls to cover what's left
+		//overshot with bigs, need to check mod with smalls
+	}
+
+
+	public static void main(String[] args){
+//		System.out.println(canDo(0,1,5));
+//		System.out.println(canDo(5,0,5));
+//		System.out.println(canDo(0,0,5));
+//		System.out.println(canDo(2,1,7));
+//		System.out.println(canDo(1,1,7));		
+//		System.out.println(canDo(1,2,7));		
+		
+//		System.out.println(makeChocolate(0,1,5));//1
+//		System.out.println(makeChocolate(5,0,5));//5
+//		System.out.println(makeChocolate(0,0,5));//-1
+//		System.out.println(makeChocolate(2,1,7));//2
+//		System.out.println(makeChocolate(1,1,7));//-1
+//		System.out.println(makeChocolate(1,2,7));//-1
+		
+//		System.out.println(makeChocolate(4,1,9));
+		System.out.println(makeBricks(1000000, 1000, 1000100));
+		
+	}
+}

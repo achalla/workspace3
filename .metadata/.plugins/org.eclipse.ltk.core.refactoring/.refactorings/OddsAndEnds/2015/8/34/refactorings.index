@@ -1,0 +1,10 @@
+1439754883219	Delete element
+1439842675470	Rename field 'grid'
+1439843770211	Rename local variable 'x'
+1439843776249	Rename local variable 'y'
+1439844810845	Rename field 'COL_LENGTH'
+1439844824580	Rename field 'ROW_LENGTH'
+1439845579257	Rename local variable 'row'
+1439845583264	Rename local variable 'col'
+1439846549516	Rename package 'SudokuSolver'
+1439846551695	Move compilation unit

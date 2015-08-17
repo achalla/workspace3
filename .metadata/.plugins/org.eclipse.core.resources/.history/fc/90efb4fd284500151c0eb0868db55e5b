@@ -1,0 +1,19 @@
+package sudokusolver;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class SudokuBoardTest {
+
+	public void initialize(){
+		
+	}
+	
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,16 @@
+public class SudokuBoard {
+	static int[][] grid;
+	
+	public SudokuBoard(){
+		grid = new int[9][9];
+	}
+	
+	public static loadBoard1(){
+		
+	}
+
+	public static void main(String[] args) {
+		SudokuBoard sb = new SudokuBoard();
+	}
+	
+}
